@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{4:function(n,o,i){n.exports=i("ok8N")},ok8N:function(n,o,i){"use strict";i.r(o);var d=i("+2Rf"),p=i.n(d);p.a.fn.dropdown=function(){p()("nav.primary > ul > li").hover(function(){p()(this).find(".dropdown").addClass("open")},function(){p()(this).find(".dropdown").removeClass("open")})}}},[[4,0,1]]]);
+//# sourceMappingURL=dropdown.plugin.js.map

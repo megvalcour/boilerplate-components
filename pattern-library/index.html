@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="themes/mandelbrot/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" href="themes/mandelbrot/css/default.css?cachebust=1.2.0" type="text/css">
+
+
+<title>Project Conventions | Boilerplate</title>
+
+</head>
+<body>
+
+
+
+<div class="Frame" id="frame">
+
+    <div class="Frame-header">
+        <div class="Header">
+    <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
+        <svg class="Header-navToggleIcon Header-navToggleIcon--open" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/>
+</svg>
+
+        <svg class="Header-navToggleIcon Header-navToggleIcon--closed" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+</svg>
+
+    </button>
+    <a href="" class="Header-title" data-pjax>Boilerplate</a>
+</div>
+
+    </div>
+
+    <div class="Frame-body" data-role="body">
+
+        <div class="Frame-panel Frame-panel--main" data-role="main">
+            <div class="Frame-inner" id="pjax-container">
+            
+
+<div class="Document">
+
+    <div class="Document-header">
+        
+        <h1 class="Document-title">Project Conventions</h1>
+        
+
+
+        
+    </div>
+
+    <div class="Document-content">
+
+    
+
+<div class="Prose">
+
+
+
+    
+    
+    <h2 id="folder-structure">Folder Structure</h2>
+<p>As front end development has become more complicated over the years, it’s important to organize code into more than two or three large files. The convention in use on this project is based on <a href="#">Atomic Design</a>. All front end styles are within <code>resources/styles/</code>.</p>
+<p>Within <code>resources/styles/</code>, there are the following subdirectories:</p>
+<ul>
+<li><strong>docs/</strong> - contains project specific, front end documentation (such as this.)</li>
+<li><strong>atoms/</strong> - contains atoms, as described by Atomic Design.</li>
+<li><strong>molecules/</strong> - contains molecules, as described by Atomic Design.</li>
+<li><strong>organisms/</strong> - contains organisms, as described by Atomic Design.</li>
+<li><strong>templates/</strong> - contains templates, as described by Atomic Design.</li>
+<li><strong>pages/</strong> - contains pages, as described by Atomic Design.</li>
+<li><strong>utilities/</strong> - contains utilities that are independent of components.</li>
+</ul>
+<p>There’s also a handful of Sass files within this folder itself:</p>
+<ul>
+<li><strong>main.scss</strong> - This is the root file that Boilerplate compiles to <strong>main.css</strong>. It just contains <code>@import</code> statements.</li>
+<li><strong>variables.scss</strong> - contains Sass variables.</li>
+<li><strong>utilities.scss</strong> - contains Sass utilities that are too simple to define standalone.</li>
+<li><strong>base.scss</strong> - Base styles, such as typography.</li>
+<li><strong>mixins.scss</strong> - contains Sass mixins and functions that don’t make sense to get their own folder.</li>
+</ul>
+<h2 id="component-file-structure-and-naming">Component File Structure and Naming</h2>
+<h3 id="quick-reference">Quick Reference</h3>
+<ul>
+<li><strong>styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.scss</strong></li>
+<li><strong>styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.twig</strong></li>
+<li><strong>styles/&lt;category&gt;/&lt;component-name&gt;/README.md</strong></li>
+<li><strong>styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;[–&lt;variant-name&gt;].twig</strong></li>
+<li><strong>styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.js</strong></li>
+<li><strong>styles/&lt;category&gt;/&lt;component-name&gt;/&lt;component-name&gt;.config.json</strong></li>
+</ul>
+<h3 id="explanation">Explanation</h3>
+<p>Components are first categorized and put in one of the following folders, based on Atomic Design principles: <strong>utilities/</strong>, <strong>atoms/</strong>, <strong>molecules/</strong>, <strong>organisms/</strong>, <strong>templates/</strong>, or <strong>pages/</strong>. <a href="http://atomicdesign.bradfrost.com/">Atomic Design</a> is a methodology for breaking down and front end development into manageable, modular pieces that are easier to maintain. Boilerplate uses Atomic Design because it is useful, thought out, well documented, and has a strong community.</p>
+<p>The notable addition to the typical Atomic Design categories is <strong>utilities/</strong> (although Atomic Design doesn’t oppose this kind of category at all.) The <strong>utilities/</strong> folder is meant for utilities - code that isn’t specific to a single component.</p>
+<p><em>It’s okay for components to change categories during development.</em> Whenever you’re trying to choose a category for a component, make your best guess, erring on making it smaller. For example, if you’re torn between something being an atom or a molecule, start with atom.</p>
+<p>Each component should have its own folder. These folder names should use <code>kebak-case</code>. Within that folder, a component may contain the following:</p>
+<ul>
+<li>A Sass file, with the same name as the folder, defining the styles for this component.</li>
+<li>A Twig file, with the same name as the folder, containing example markup for this component.</li>
+<li>Additional Twig files, showing additional examples markup (what <a href="#">Fractal calls Variants</a>) for this component.</li>
+<li>A README.md, with additional, component specific documentation.</li>
+<li>A JavaScript file, with the same name as the folder, meant to work with the example markup to render the component. Note that this isn’t meant to be the source code of a JavaScript plugin or library, but rather the code required to <em>use</em> on the example markup.</li>
+<li>A <a href="#">Fractal configuration file</a>, defining how to display this component within the pattern library.</li>
+</ul>
+<p>For example, for buttons, we have the following:</p>
+<ul>
+<li><strong>atoms/button/</strong></li>
+<li><strong>atoms/button/button.scss</strong></li>
+<li><strong>atoms/button/button.twig</strong></li>
+<li><strong>atoms/button/button–disabled.twig</strong></li>
+<li><strong>atoms/button/button.config.json</strong></li>
+</ul>
+<h2 id="class-names">Class Names</h2>
+<h3 id="quick-reference">Quick Reference</h3>
+<ul>
+<li><code>.componentName__elementName -modifierName</code></li>
+</ul>
+<h3 id="explanation">Explanation</h3>
+<p>Boilerplate recommends a BEM convention based on the <a href="https://css-tricks.com/abem-useful-adaptation-bem/">BEM variant ABEM</a>. The <a href="http://getbem.com/">BEM approach</a> ensures we’re using a consistent, modular naming convention that minimizes conflicts while maintaining readability and flexibility. ABEM (as well as <a href="https://www.slideshare.net/Jyaasa/bevm-blockelementvariation-modifier">BEVM</a>) offers some simple enhancements over vanilla BEM:</p>
+<ul>
+<li><strong>Chainable modifiers</strong> are easier to read and chain by avoiding repetition.</li>
+<li>Having a convention for a <strong>namespaces</strong> is better, even if not used for all classes.</li>
+</ul>
+<p>Other conventions from BEM, ABEM and Atomic Design apply, such as:</p>
+<ul>
+<li>Use class names for selectors; avoiding using tag names or IDs.</li>
+<li>Atoms, Molecules, Organisms, Templates and Pages should also be “Blocks” from a BEM perspective.</li>
+<li>The class name for a component should be the <code>lowerCamelCase</code> version of its name.</li>
+<li>Components should not depend on other components/elements within a page.</li>
+<li>Components can contain other components as well as elements, but not elements of elements.</li>
+<li>Both components as well as elements can have modifiers.</li>
+</ul>
+<p>ABEM and Chainable modifiers introduces the following:</p>
+<ul>
+<li>Avoid styling modifier classes without also targeting a component or element.</li>
+<li>Boilerplate treats the namespace prefix as optional; if you want to use them, use them, but the documentation doesn’t.</li>
+<li>The one exception to namespace prefixes is <code>js-</code>. Boilerplate recommends that the <code>js-</code> prefix is used to denote every class that’s used for targeting from JavaScript, and that these classes do not overlap with those used for styling.</li>
+</ul>
+<h3 id="styling-elements-without-classes">Styling Elements without Classes</h3>
+<p>In general, styling elements within blocks should be avoided, however, one typical exception is for styling elements that are just part of rich text.</p>
+<p>For example</p>
+<code><pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"messaging -success"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        Success! Your changes have been saved. <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>View now.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre></code><p>In this context, the <code>&lt;a&gt;</code> tag is simply being used as part of rich text, but we may need to alter its text color while within <code>.messaging.-dark</code>. Other common examples are when elements are part of content coming from a CMS, such as</p>
+<ul>
+<li><code>&lt;a&gt;</code> tags within short descriptions,</li>
+<li>headings (<code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>) within news articles, and even</li>
+<li>tables within blog articles.</li>
+</ul>
+<p>In these instances - where you simply need to override the default styling for tags within rich text because of a parent component - it’s okay to style to element within the block:</p>
+<code><pre><span class="hljs-selector-class">.messaging</span>.-success {
+    <span class="hljs-attribute">background-color</span>: darkgreen;
+
+    <span class="hljs-selector-tag">a</span> {
+        <span class="hljs-attribute">color</span>: white;
+        <span class="hljs-attribute">text-decoration</span>: underline;
+    }
+}</pre></code><h4 id="explanation">Explanation</h4>
+<p>The reason for this exception to better support styling generated HTML, such as CMS content, server messages, rich text API responses, etc.</p>
+<h2 id="sass-mixins-and-functions">Sass Mixins and Functions</h2>
+<p>If you’d like to define sass mixins or functions, Boilerplate recommends</p>
+<ul>
+<li>Mixin and function names are in <code>lowerCamelCase</code>.</li>
+<li>Component specific sass mixins are defined with the component’s sass file.</li>
+<li>Simple Sass mixins and functions can be put in the <strong>mixins.scss</strong> file and documented with a comment.</li>
+<li>Bigger Sass mixins and functions should get their own folder and Sass file within the <strong>utilities/</strong> folder. These mixins may also have their own example markup and README.md files within their folders.</li>
+</ul>
+
+    
+
+
+</div>
+
+
+
+    </div>
+
+</div>
+
+
+            </div>
+        </div>
+
+        <div class="Frame-handle" data-role="frame-resize-handle"></div>
+        
+        <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
+            <nav class="Navigation">
+
+    
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-components">
+    <h3 class="Tree-title">components</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-atoms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Atoms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/breadcrumbs.html" data-pjax>
+                <span>Breadcrumbs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/button.html" data-pjax>
+                <span>Button</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/link.html" data-pjax>
+                <span>Link</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/pagination.html" data-pjax>
+                <span>Pagination</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/progress.html" data-pjax>
+                <span>Progress</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #886600;" title="Deprecated"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/toggle-button.html" data-pjax>
+                <span>Toggle Button</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-molecules">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Molecules</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/accordion.html" data-pjax>
+                <span>Accordion</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #886600;" title="Deprecated"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/feature.html" data-pjax>
+                <span>Feature</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/messaging.html" data-pjax>
+                <span>Messaging</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/tabs.html" data-pjax>
+                <span>Tabs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #886600;" title="Deprecated"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/tiles.html" data-pjax>
+                <span>Tiles</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-organisms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Organisms</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/background-video.html" data-pjax>
+                <span>Background Video</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/carousel.html" data-pjax>
+                <span>Carousel</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/dossier.html" data-pjax>
+                <span>Dossier</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #886600;" title="Deprecated"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/features.html" data-pjax>
+                <span>Features</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/login.html" data-pjax>
+                <span>Login</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/primary-header.html" data-pjax>
+                <span>Primary Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/testimonial.html" data-pjax>
+                <span>Testimonial</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-templates">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Templates</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/listing.html" data-pjax>
+                <span>Listing</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-utilities">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Utilities</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/columns.html" data-pjax>
+                <span>Columns</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/container.html" data-pjax>
+                <span>Container</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/grid.html" data-pjax>
+                <span>Grid</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/mobile-navigation.html" data-pjax>
+                <span>Mobile Navigation</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/sticky-element.html" data-pjax>
+                <span>Sticky Element</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/sticky-header.html" data-pjax>
+                <span>Sticky Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+
+    
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-docs">
+    <h3 class="Tree-title">documentation</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                <span>Overview</span>
+                
+            </a>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+
+    
+
+
+</nav>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
+
+
+
+</body>
+</html>

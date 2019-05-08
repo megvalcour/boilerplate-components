@@ -1,0 +1,36 @@
+@mixin link (
+    $color: $link,
+    $hover-color: $link-hover,
+    $disabled-color: darken(#FFF, 20%)
+) {
+    background-color: transparent;
+    border: 0;
+    color: $link;
+    cursor: pointer;
+    display: inline;
+    line-height: normal;
+    padding: 0;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        color: $link-hover;
+    }
+    &:focus {
+        outline: thin dotted;
+    }
+
+    &.-disabled,
+    &[disabled] {
+        color: darken(#FFF, 20%);
+        cursor: default;
+        pointer-events: none;
+    }
+}
+
+
+@if $use-boilerplate-classes {
+    .link {
+        @include link;
+    }
+}

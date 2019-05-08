@@ -1,0 +1,53 @@
+///
+/// A basic button mixin.
+///
+/// $color
+///     button color
+/// $text-color
+///     button label color
+/// $hover-color
+///     button hover color
+/// $disabled-color
+///     disabled button color
+/// $font-stack
+///     font stack for button label
+///
+
+@mixin button (
+    $color: $link,
+    $text-color: $white,
+    $hover-color: $link-hover,
+    $disabled-color: lighten($charcoal, 45%),
+    $font-stack: $font-stack
+) {
+    background-color: $color;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $font-stack;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding: 0.4rem 1rem;
+    text-align: center;
+    vertical-align: top;
+
+    &:hover,
+    &:focus {
+        background-color: $link-hover;
+        outline: none;
+    }
+
+    &.-disabled,
+    &[disabled] {
+        background-color: lighten($charcoal, 45%);
+        color: darken(#FFF, 20%);
+        pointer-events: none;
+    }
+}
+
+@if $use-boilerplate-classes {
+    .button {
+        @include button;
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "/js/manifest.js": "/js/manifest.js?id=6a4eb117ddc7ca47286f",
+    "/js/manifest.js.map": "/js/manifest.js.map?id=2b7092fd6e2c065e72d7",
+    "/js/vendor.js": "/js/vendor.js?id=a47e7f7c0e27db8b6c72",
+    "/js/vendor.js.map": "/js/vendor.js.map?id=8ed914bc715a460d9d02",
+    "/js/main.js": "/js/main.js?id=a2c391fe4f20407baaed",
+    "/js/main.js.map": "/js/main.js.map?id=04ac3708de5d2f428742",
+    "/js/plugins/accordion.plugin.js": "/js/plugins/accordion.plugin.js?id=d8b8b88aabf5cdddbdbf",
+    "/css/main.css": "/css/main.css?id=41d936f57da1a95daa78",
+    "/js/plugins/accordion.plugin.js.map": "/js/plugins/accordion.plugin.js.map?id=a3abfb023ed189ff5c25",
+    "/js/plugins/dropdown.plugin.js": "/js/plugins/dropdown.plugin.js?id=c260375550029302c04c",
+    "/js/plugins/dropdown.plugin.js.map": "/js/plugins/dropdown.plugin.js.map?id=9dfea4977fc3b6862530",
+    "/js/plugins/mobileNavigation.plugin.js": "/js/plugins/mobileNavigation.plugin.js?id=7c8001d57212bb6d7485",
+    "/js/plugins/mobileNavigation.plugin.js.map": "/js/plugins/mobileNavigation.plugin.js.map?id=fcb474e4444bc70879b0",
+    "/js/plugins/stickyElement.plugin.js": "/js/plugins/stickyElement.plugin.js?id=412c29c2a2248486737a",
+    "/js/plugins/stickyElement.plugin.js.map": "/js/plugins/stickyElement.plugin.js.map?id=582ad8290e874e0b12ee",
+    "/js/plugins/stickyHeader.plugin.js": "/js/plugins/stickyHeader.plugin.js?id=d1b0792d605dff96b118",
+    "/js/plugins/stickyHeader.plugin.js.map": "/js/plugins/stickyHeader.plugin.js.map?id=9a118742eae950dd5b7a",
+    "/js/plugins/tabs.plugin.js": "/js/plugins/tabs.plugin.js?id=2d56a4148c5679ffa387",
+    "/js/plugins/tabs.plugin.js.map": "/js/plugins/tabs.plugin.js.map?id=b6219db9990ceb37c915"
+}

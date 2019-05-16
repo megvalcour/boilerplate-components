@@ -146,6 +146,15 @@
 <li>Boilerplate treats the namespace prefix as optional; if you want to use them, use them, but the documentation doesn’t.</li>
 <li>The one exception to namespace prefixes is <code>js-</code>. Boilerplate recommends that the <code>js-</code> prefix is used to denote every class that’s used for targeting from JavaScript, and that these classes do not overlap with those used for styling.</li>
 </ul>
+<p>Read even more about <a href="abem">Why We Use BEM, ABEM, and Atomic Design</a>.</p>
+<h3 id="bem-mixes">BEM Mixes</h3>
+<p>All a BEM mix is using multiple BEM blocks or elements on the same DOM element. For example, it’s fine for an element of one block to also be block itself:</p>
+<code><pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"feature"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        Ipsum mollitia dolores quisquam minima obcaecati. Atque ipsam vel ex?
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"feature__callToAction button"</span>&gt;</span>Learn More<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre></code><p>It’s allowed to even use two different BEM blocks on the same DOM element, but generally that suggests that those two blocks should be combined or rethought.</p>
 <h3 id="styling-elements-without-classes">Styling Elements without Classes</h3>
 <p>In general, styling elements within blocks should be avoided, however, one typical exception is for styling elements that are just part of rich text.</p>
 <p>For example</p>
@@ -900,6 +909,16 @@
 <div class="Tree" data-behaviour="tree" id="tree-docs">
     <h3 class="Tree-title">documentation</h3>
     <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="docs/abem.html" data-pjax>
+                <span>Abem</span>
+                
+            </a>
+        </li>
         
     
         

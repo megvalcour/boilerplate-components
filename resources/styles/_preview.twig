@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ _target.title }} ({{ _target.handle }}) - Pattery Library</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{{ _target.title }} ({{ _target.handle }}) - Pattern Library</title>
 
-    <link rel="stylesheet" href="{{ prefix("/css/main.css") }}">
+        <link rel="stylesheet" href="{{ "/css/main.css"|path }}" />
 
-    <script defer src="{{ prefix("/js/manifest.js") }}"></script>
-    <script defer src="{{ prefix("/js/vendor.js") }}"></script>
-    <script defer src="{{ prefix("/js/main.js") }}"></script>
+        <script defer src="{{ "/js/manifest.js"|path }}"></script>
+        <script defer src="{{ "/js/vendor.js"|path }}"></script>
+        <script defer src="{{ "/js/main.js"|path }}"></script>
 
-    {% for script in _target.resources.assets if script.isJS %}
-        <script defer src="../raw/{{ _target.baseHandle }}/{{ script.base }}"></script>
-    {% endfor %}
-</head>
-<body>
-    <div id="root">
-        {{ yield }}
-    </div>
-</body>
+        {#
+        {% for script in _target.resources.assets if script.isJS %}
+            <script defer src="../raw/{{ _target.baseHandle }}/{{ script.base }}"></script>
+        {% endfor %}
+        #}
+        <style>
+            {% if _target.context.darkBg %}
+                body,
+                html {
+                    background-color: {{ _config.project.darkBgColor ?? '#1a1a1a' }};
+                }
+            {% endif %}
+
+            .fractalPreview {
+                max-width: {{ _target.context.maxWidth ?? "none" }};
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+            <div class="fractalPreview">
+                {{ yield }}
+            </div>
+        </div>
+    </body>
 </html>

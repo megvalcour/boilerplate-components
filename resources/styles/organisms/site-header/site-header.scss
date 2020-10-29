@@ -1,0 +1,16 @@
+.siteHeader {
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.siteLogo {
+    display: flex;
+    align-items: center;
+
+    &__name {
+        font-size: 1.6rem;
+        margin: 0 .618rem;
+    }
+}

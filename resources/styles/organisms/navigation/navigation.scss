@@ -1,6 +1,7 @@
 .primaryNav {
     &__list {
         list-style: none;
+        margin-top: 0;
         margin-bottom: 0;
         padding-left: 0;
         display: flex;
@@ -19,9 +20,13 @@
 
 .linkGroups {
     display: flex;
+    padding: 1rem 1.618rem;
 }
 
 .linkGroup {
+    &__title {
+        font-weight: bold;
+    }
     &__list {
         list-style: none;
         padding-left: 0;

@@ -60,6 +60,7 @@ fractal.web.set('builder.static.ignored', [
  * change; wait until the CSS changes.
  */
 fractal.web.set('server.sync', true)
+fractal.web.set('server.port', 3010)
 fractal.web.set('server.syncOptions', { watchOptions: { ignored: /\.scss$/i } });
 
 /**

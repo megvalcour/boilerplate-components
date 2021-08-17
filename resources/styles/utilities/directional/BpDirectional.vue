@@ -1,5 +1,5 @@
 <script>
-import Vue from 'vue'
+import { onMounted } from 'vue'
 
 /**
  * Default selector used for all focusable elements.
@@ -32,6 +32,14 @@ const KEY_FILTERS = {
 }
 
 export default {
+    setup(props, ctx) {
+        onMounted(() => {
+            this.$el.addEventListener('keydown', this.handler)
+        })
+
+        return () => ctx.slots.default()
+    },
+
     methods: {
         /**
          * Method for retrieving all currently visible, focusable elements.
@@ -132,20 +140,5 @@ export default {
             }
         }
     },
-
-
-    /**
-     * This is a renderless component.
-     */
-    render() {
-        return this.$slots.default
-    },
-
-    /**
-     * Binds the event listener since this is a renderless component.
-     */
-    mounted() {
-        this.$el.addEventListener('keydown', this.handler)
-    }
 }
 </script>

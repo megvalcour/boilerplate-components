@@ -41,7 +41,7 @@
     }
 
     &__transition {
-        &-enter,
+        &-enter-from,
         &-leave-to {
             height: 0 !important;
         }

@@ -55,7 +55,7 @@
             transition: opacity $moderate, transform $moderate;
             transform: rotateX(0);
         }
-        &-enter,
+        &-enter-from,
         &-leave-to {
             opacity: 0;
             transform: rotateX(90deg);

@@ -1,42 +1,36 @@
+import '../styles/main.scss'
+
 import 'slick-carousel'
 import 'lazysizes'
-import PortalVue from 'portal-vue'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
-import './plugins/dropdown.plugin'
-import './plugins/mobileNavigation.plugin'
-import './plugins/stickyElement.plugin'
-import './plugins/stickyHeader.plugin'
-import './plugins/tabs.plugin'
+// import './plugins/dropdown.plugin'
+// import './plugins/mobileNavigation.plugin'
+// import './plugins/stickyElement.plugin'
+// import './plugins/stickyHeader.plugin'
+// import './plugins/tabs.plugin'
 
-import BpAccordion from '../styles/molecules/accordion/BpAccordion'
-import BpCarousel from '../styles/organisms/carousel/BpCarousel'
-import BpClickable from '../styles/utilities/clickable/BpClickable'
-import BpDirectional from '../styles/utilities/directional/BpDirectional'
-import BpDismissable from '../styles/utilities/dismissable/BpDismissable'
-import BpDropdown from '../styles/atoms/dropdown/BpDropdown'
-import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNavigation'
-import BpModal from '../styles/organisms/modal/BpModal'
-import BpTabs from '../styles/molecules/tabs/BpTabs'
+// import BpAccordion from '../styles/molecules/accordion/BpAccordion.vue'
+// import BpCarousel from '../styles/organisms/carousel/BpCarousel.vue'
+// import BpClickable from '../styles/utilities/clickable/BpClickable.vue'
+// import BpDirectional from '../styles/utilities/directional/BpDirectional.vue'
+// import BpDismissable from '../styles/utilities/dismissable/BpDismissable.vue'
+// import BpDropdown from '../styles/atoms/dropdown/BpDropdown.vue'
+// import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNavigation.vue'
+// import BpModal from '../styles/organisms/modal/BpModal.vue'
+// import BpTabs from '../styles/molecules/tabs/BpTabs.vue'
 
-import Vue from 'vue'
+import { createApp } from 'vue/dist/vue.esm-bundler'
 
-Vue.use(PortalVue)
-
-// eslint-disable-next-line
-new Vue({
-    el: '#root',
+createApp({
     components: {
-        BpAccordion,
-        BpCarousel,
-        BpClickable,
-        BpDirectional,
-        BpDismissable,
-        BpDropdown,
-        BpMobileNavigation,
-        BpModal,
-        BpTabs,
-        Swiper,
-        SwiperSlide,
+        // BpAccordion,
+        // BpCarousel,
+        // BpClickable,
+        // BpDirectional,
+        // BpDismissable,
+        // BpDropdown,
+        // BpMobileNavigation,
+        // BpModal,
+        // BpTabs,
     },
-})
+}).mount('#root')

@@ -58,7 +58,7 @@ export default {
     render () {
         return this.isDismissed
             ? ''
-            : this.$scopedSlots.default({
+            : this.$slots.default({
                 dismiss: this.dismiss,
                 isDismissed: this.isDismissed,
             })

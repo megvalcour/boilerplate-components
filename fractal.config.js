@@ -1,9 +1,11 @@
-'use strict'
-
 const fractal = module.exports = require('@frctl/fractal').create()
 const mandelbrot = require('@frctl/mandelbrot')
 const hydrogen = require('fractal-theme-hydrogen')(mandelbrot)
-const twigAdapter = require('@frctl/twig')()
+
+const manifestAssets = require('./vite-manifest.js')('./web/assets/manifest.json')
+const twigAdapter = require('@frctl/twig')({
+    functions: { manifestAssets }
+})
 
 /**
  * Name your Pattern Library!
@@ -60,7 +62,6 @@ fractal.web.set('builder.static.ignored', [
  * change; wait until the CSS changes.
  */
 fractal.web.set('server.sync', true)
-fractal.web.set('server.port', 3010)
 fractal.web.set('server.syncOptions', { watchOptions: { ignored: /\.scss$/i } });
 
 /**

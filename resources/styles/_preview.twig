@@ -5,22 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ _target.title }} ({{ _target.handle }}) - Pattern Library</title>
 
-    {#
-    <link rel="stylesheet" href="{{ '/css/main.css' }}">
-
-    <script defer src="{{ '/js/manifest.js' }}"></script>
-    <script defer src="{{ '/js/vendor.js' }}"></script>
-    <script defer src="{{ '/js/main.js' }}"></script>
-    #}
-
-    <script type="module" src="http://localhost:3000/@vite/client"></script>
-    <script type="module" src="http://localhost:3000/resources/js/main.js"></script>
-
-    {#
-    {% for script in _target.resources.assets if script.isJS %}
-        <script defer src="../raw/{{ _target.baseHandle }}/{{ script.base }}"></script>
+    {% for file in manifestAssets('resources/js/main.js', 'css') %}
+        <link rel="stylesheet" href="/assets/{{ file }}">
     {% endfor %}
-    #}
 </head>
 <body>
     <div id="root">
@@ -28,5 +15,8 @@
     </div>
 
     <div id="modal"></div>
+    {% for file in manifestAssets('resources/js/main.js', 'js') %}
+        <script defer src="/assets/{{ file }}"></script>
+    {% endfor %}
 </body>
 </html>

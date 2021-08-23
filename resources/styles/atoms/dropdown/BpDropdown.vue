@@ -93,7 +93,7 @@ export default {
             }
         },
         focusout (evt) {
-            if (this.expanded && !this.$el.contains(evt.relatedTarget)) {
+            if (this.expanded && !this.$refs.dropdown.contains(evt.relatedTarget)) {
                 this.close(false)
             }
         },

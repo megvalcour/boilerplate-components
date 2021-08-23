@@ -32,15 +32,16 @@ const KEY_FILTERS = {
 }
 
 export default {
-    els: null,
+    data: () => ({
+        elements: null,
+    }),
 
     methods: {
         /**
          * Method for retrieving all currently visible, focusable elements.
          */
         queryFocusableElements () {
-
-            return this.$options.els
+            return this.elements
                 .map(({ el }) => Array.from(el.querySelectorAll(FOCUSABLE_SELECTOR)))
                 .flat()
         },
@@ -52,7 +53,7 @@ export default {
         getElementRects (el) {
             const rects = el.getClientRects()[0]
 
-            if (!rects || !rects.left) {
+            if (!rects) {
                 return null
             }
 
@@ -142,13 +143,13 @@ export default {
      * This is a renderless component.
      */
     render () {
-        const els = this.$slots.default()
+        const elements = this.$slots.default()
             .map(vnode => cloneVNode(vnode, {
                 onKeydown: this.handler,
             }))
 
-        this.$options.els = els
-        return els
+        this.elements = elements
+        return this.elements
     },
 }
 </script>

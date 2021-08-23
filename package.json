@@ -41,7 +41,7 @@
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.0.0",
     "slick-carousel": "^1.8.1",
-    "swiper": "^6.7.0",
+    "swiper": "^6.8.4",
     "vite": "^2.5.0",
     "vue": "^3.2.4"
   },

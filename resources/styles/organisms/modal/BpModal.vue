@@ -11,10 +11,9 @@
                 Open Modal
             </button>
         </slot>
-        <MountingPortal
+        <teleport
             v-if="open"
-            mount-to="#modal"
-            append
+            to="body"
         >
             <div
                 :class="`${block}__${overlayElement}`"
@@ -69,7 +68,7 @@
                     </slot>
                 </div>
             </div>
-        </MountingPortal>
+        </teleport>
     </div>
 </template>
 

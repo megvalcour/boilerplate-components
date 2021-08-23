@@ -1,14 +1,15 @@
 import '../styles/main.scss'
 
 import 'lazysizes'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 
 import BpAccordion from '../styles/molecules/accordion/BpAccordion.vue'
-//import BpCarousel from '../styles/organisms/carousel/BpCarousel.vue'
+import BpCarousel from '../styles/organisms/carousel/BpCarousel.vue'
 import BpClickable from '../styles/utilities/clickable/BpClickable.vue'
 import BpDirectional from '../styles/utilities/directional/BpDirectional.vue'
 import BpDismissable from '../styles/utilities/dismissable/BpDismissable.vue'
 import BpDropdown from '../styles/atoms/dropdown/BpDropdown.vue'
-//import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNavigation.vue'
+import BpMobileNavigation from '../styles/organisms/mobile-navigation/BpMobileNavigation.vue'
 import BpModal from '../styles/organisms/modal/BpModal.vue'
 import BpTabs from '../styles/molecules/tabs/BpTabs.vue'
 
@@ -17,13 +18,16 @@ import { createApp } from 'vue/dist/vue.esm-bundler'
 createApp({
     components: {
         BpAccordion,
-        // BpCarousel,
+        BpCarousel,
         BpClickable,
         BpDirectional,
         BpDismissable,
         BpDropdown,
-        //BpMobileNavigation,
+        BpMobileNavigation,
         BpModal,
         BpTabs,
+
+        Swiper,
+        SwiperSlide,
     },
 }).mount('#root')

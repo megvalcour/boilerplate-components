@@ -37,7 +37,9 @@
             :hidden="!isActiveTab(tab)"
             :aria-labelledby="tab"
         >
-            <slot :name="`tab-panel-${tab}`" />
+            <slot :name="`tab-panel-${tab}`">
+                <h1>{{ tab }}</h1>
+            </slot>
         </div>
     </section>
 </template>
@@ -80,9 +82,8 @@ export default {
         },
         initialTab: {
             type: String,
-            default () {
-                const [firstTab] = Object.keys(this.tabs)
-
+            default (props) {
+                const [firstTab] = Object.keys(props.tabs)
                 return firstTab
             },
         },
@@ -96,10 +97,10 @@ export default {
         },
         wrap: {
             type: Boolean,
-            default() {
-                return !this.vertical;
+            default (props) {
+                return !props.vertical
             },
-        }
+        },
     },
 
     data () {
@@ -174,14 +175,14 @@ export default {
         },
         navigateNextTab (evt) {
             if (this.nextTabKey) {
-                evt.preventDefault();
+                evt.preventDefault()
                 const nextTabButton = this.$el.querySelector(`[id="${this.nextTabKey}"]`)
                 nextTabButton.focus()
             }
         },
         navigatePrevTab (evt) {
             if (this.prevTabKey) {
-                evt.preventDefault();
+                evt.preventDefault()
                 const prevTabButton = this.$el.querySelector(`[id="${this.prevTabKey}"]`)
                 prevTabButton.focus()
             }

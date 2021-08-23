@@ -73,6 +73,7 @@ export default {
     components: {
         BpDirectional,
     },
+    inheritAttrs: false,
     props: {
         delay: { type: Number, default: 0 },
         hoverable: { type: Boolean, default: false },
@@ -82,6 +83,7 @@ export default {
         labelClass: { type: String, default: '' },
         transition: { type: String, default: 'dropdown__transition' },
     },
+    emits: ['open', 'close'],
     data: () => ({
         timer: new Timer(),
         expanded: false,

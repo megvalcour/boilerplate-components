@@ -43,6 +43,7 @@
     "slick-carousel": "^1.8.1",
     "swiper": "^6.8.4",
     "vite": "^2.5.0",
+    "vite-manifest": "^1.0.0",
     "vue": "^3.2.4"
   },
   "devDependencies": {

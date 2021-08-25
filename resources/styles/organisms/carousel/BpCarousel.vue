@@ -7,7 +7,7 @@
 </template>
 <script>
 import { Swiper } from 'swiper/vue'
-import 'swiper/swiper-bundle.css'
+import 'swiper/css'
 
 export default {
     components: {

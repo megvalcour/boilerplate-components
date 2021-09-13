@@ -8,7 +8,7 @@ export default defineConfig(async ({ command, mode }) => {
         plugins: [vue()],
         build: {
             manifest: true,
-            outDir: 'web/assets',
+            outDir: 'web/dist',
             assetsDir: '.',
             rollupOptions: {
                 input: 'resources/js/main.js',

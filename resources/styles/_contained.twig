@@ -7,7 +7,7 @@
 
     {% if not _config.viteServer %}
         {% for file in viteManifest('resources/js/main.js', 'css') %}
-            <link rel="stylesheet" href="/assets/{{ file }}">
+            <link rel="stylesheet" href="/dist/{{ file }}">
         {% endfor %}
     {% endif %}
 </head>
@@ -23,7 +23,7 @@
         <script type="module" src="http://localhost:3000/resources/js/main.js"></script>
     {% else %}
         {% for file in viteManifest('resources/js/main.js', 'js') %}
-            <script type="module" src="/assets/{{ file }}"></script>
+            <script type="module" src="/dist/{{ file }}"></script>
         {% endfor %}
     {% endif %}
 

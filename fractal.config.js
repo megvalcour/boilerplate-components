@@ -1,18 +1,23 @@
-const resolve = require('path').resolve
 const fractal = module.exports = require('@frctl/fractal').create()
-const mandelbrot = require('@frctl/mandelbrot')
-const theme = require('fractal-theme-hydrogen')(mandelbrot)
 const fractalTwig = require('@frctl/twig')
+const fs = require('fs')
+const mandelbrot = require('@frctl/mandelbrot')
+const resolve = require('path').resolve
+const theme = require('fractal-theme-hydrogen')(mandelbrot)
 
 /**
  * Use vite-manifest to provide the twig function viteManifest for referencing
  * assets compiled by vite.
  */
 import('vite-manifest').then(({ default: viteManifest }) => {
-    viteManifest = viteManifest(resolve('./web/assets/manifest.json'))
-    fractal.components.engine(
-        fractalTwig({ functions: { viteManifest } })
-    )
+    const config = {}
+    const path = resolve('./web/dist/manifest.json')
+    if (fs.existsSync(path)) {
+        viteManifest = viteManifest(path)
+        config.functions = { viteManifest }
+    }
+
+    fractal.components.engine(fractalTwig(config))
 })
 
 /**

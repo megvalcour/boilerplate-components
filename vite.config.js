@@ -14,6 +14,11 @@ export default defineConfig(async ({ command, mode }) => {
                 input: 'resources/js/main.js',
             },
         },
+        resolve: {
+            alias: {
+                vue: 'vue/dist/vue.esm-bundler.js',
+            },
+        },
     }
 
     if (command === 'serve') {
